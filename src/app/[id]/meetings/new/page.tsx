@@ -105,7 +105,7 @@ export default function CreateMeetingPage() {
 
   const onFinish = () => {
     message.success('Meeting created successfully!');
-    router.push(`/${leadId}/meetings`);
+    router.push(`/${leadId}`);
   };
 
   useEffect(() => {

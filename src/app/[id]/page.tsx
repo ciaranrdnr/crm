@@ -31,26 +31,6 @@ export default function LeadDetailPage() {
     currentLead && setLead(currentLead)
   }, [leadId])
 
-  const activities = [
-    {
-      type: 'email',
-      title: 'Email Sent: Proposal Follow-up',
-      description: 'Sent detailed proposal for enterprise software implementation. Awaiting response.',
-      time: '2 days ago'
-    },
-    {
-      type: 'call',
-      title: 'Phone Call: Requirements Discussion',
-      description: '45-minute call discussing technical requirements and implementation timeline.',
-      time: '1 week ago'
-    },
-    {
-      type: 'meeting',
-      title: 'Meeting: Initial Consultation',
-      description: 'In-person meeting to understand business needs and pain points. AI summary available.',
-      time: '2 weeks ago'
-    }
-  ];
 
   const mockMeetings: Meeting[] = [
     {
@@ -89,6 +69,27 @@ export default function LeadDetailPage() {
       leadContact: 'John Anderson',
       description: 'Review proposal details and next steps'
     }
+  ];
+
+  const activities = [...mockMeetings,
+  {
+    type: 'email',
+    title: 'Email Sent: Proposal Follow-up',
+    description: 'Sent detailed proposal for enterprise software implementation. Awaiting response.',
+    time: '2 days ago'
+  },
+  {
+    type: 'call',
+    title: 'Phone Call: Requirements Discussion',
+    description: '45-minute call discussing technical requirements and implementation timeline.',
+    time: '1 week ago'
+  },
+  {
+    type: 'meeting',
+    title: 'Meeting: Initial Consultation',
+    description: 'In-person meeting to understand business needs and pain points. AI summary available.',
+    time: '2 weeks ago'
+  }
   ];
 
   const getActivityIcon = (type: string) => {

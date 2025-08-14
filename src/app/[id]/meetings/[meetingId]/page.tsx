@@ -292,7 +292,7 @@ export default function MeetingDetailPage() {
       <div className="flex items-center mb-6">
         <Button
           icon={<ArrowLeftOutlined />}
-          onClick={() => router.push(`/${leadId}/meetings`)}
+          onClick={() => router.push(`/${leadId}`)}
           className="mr-4"
         >
           Back to Meetings
@@ -314,7 +314,7 @@ export default function MeetingDetailPage() {
           <span className="mx-2">/</span>
           <span
             className="cursor-pointer hover:text-blue-600"
-            onClick={() => router.push(`/${leadId}/meetings`)}
+            onClick={() => router.push(`/${leadId}`)}
           >
             Meetings
           </span>
