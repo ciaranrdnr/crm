@@ -96,8 +96,7 @@ export default function LeadDetailPage() {
     switch (type) {
       case 'email': return <MailOutlined className="text-blue-500" />;
       case 'call': return <PhoneOutlined className="text-green-500" />;
-      case 'meeting': return <CalendarOutlined className="text-purple-500" />;
-      default: return null;
+      default: return <CalendarOutlined className="text-purple-500" />;
     }
   };
 
@@ -290,7 +289,7 @@ export default function LeadDetailPage() {
                 </div>
                 <div className="mt-2">
                   <Space size="small">
-                    <Button size="small" type="link" onClick={() => router.push(`/${leadId}/meetings/${mockMeetings[0]}`)}>View</Button>
+                    <Button size="small" type="link" onClick={() => router.push(`/${leadId}/meetings/${mockMeetings[0].id}`)}>View</Button>
                     <Button size="small" type="link">Edit</Button>
                     <Button size="small" type="link" danger>Delete</Button>
                   </Space>
