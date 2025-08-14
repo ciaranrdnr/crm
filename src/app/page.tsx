@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Table, Button, Input, Select, Tag, Space, Avatar, Typography, Row, Col, Modal, Form, message } from 'antd';
-import { PlusOutlined, SearchOutlined, FilterOutlined, TeamOutlined } from '@ant-design/icons';
+import { PlusOutlined, SearchOutlined, FilterOutlined } from '@ant-design/icons';
 import { useRouter } from 'next/navigation';
 import type { Lead } from '@/types';
 import { mockLeads, mockReps } from '@/utils/mock/general';
@@ -393,9 +393,9 @@ export default function LeadsPage() {
                   rules={[{ required: true, message: 'Please select assigned rep' }]}
                 >
                   <Select placeholder="Select assigned rep">
-                    {mockReps.map((rep) => {
+                    {mockReps.map((rep, id) => {
                       return (
-                        <Select.Option value={rep}>{rep}</Select.Option>
+                        <Select.Option key={id} value={rep}>{rep}</Select.Option>
                       )
                     })}
                   </Select>

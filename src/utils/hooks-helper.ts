@@ -5,22 +5,20 @@ enum BREAKPOINT {
   DESKTOP_SM = 1280
 }
 
-
 export const useResponsive = () => {
-  const [isMobile, setIsMobile] = useState<boolean>(window?.innerWidth <= BREAKPOINT.MOBILE);
-  const [isDesktopSm, setIsDesktopSm] = useState<boolean>(
-    window?.innerWidth <= BREAKPOINT.DESKTOP_SM && window?.innerWidth > BREAKPOINT.MOBILE
-  );
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isDesktopSm, setIsDesktopSm] = useState<boolean>(false);
 
   const handleResize = () => {
-    const width = window?.innerWidth;
+    const width = window.innerWidth;
     setIsMobile(width <= BREAKPOINT.MOBILE);
     setIsDesktopSm(width < BREAKPOINT.DESKTOP_SM && width > BREAKPOINT.MOBILE);
   };
 
   useEffect(() => {
-    window?.addEventListener("resize", handleResize);
-    return () => window?.removeEventListener("resize", handleResize);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return { isMobile, isDesktopSm };

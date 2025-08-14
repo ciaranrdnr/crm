@@ -7,6 +7,7 @@ import { useRouter, useParams } from 'next/navigation';
 import dayjs from 'dayjs';
 import { Lead } from '@/types';
 import { mockLeads } from '@/utils/mock/general';
+import { UploadChangeParam, UploadFile } from 'antd/es/upload';
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -81,14 +82,14 @@ export default function CreateMeetingPage() {
     return false;
   };
 
-  const handleAudioChange = (info: any) => {
+  const handleAudioChange = (info: UploadChangeParam<UploadFile>) => {
     if (info.file.status === 'done') {
       message.success(`${info.file.name} audio uploaded successfully`);
       setUploadFiles(prev => ({ ...prev, audio: info.file }));
     }
   };
 
-  const handleVideoChange = (info: any) => {
+  const handleVideoChange = (info: UploadChangeParam<UploadFile>) => {
     if (info.file.status === 'done') {
       message.success(`${info.file.name} video uploaded successfully`);
       setUploadFiles(prev => ({ ...prev, video: info.file }));
@@ -102,7 +103,7 @@ export default function CreateMeetingPage() {
   };
 
 
-  const onFinish = (values: any) => {
+  const onFinish = () => {
     message.success('Meeting created successfully!');
     router.push(`/${leadId}/meetings`);
   };
